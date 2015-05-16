@@ -1,5 +1,5 @@
 #AsyncTask
-AsyncTask是个人编写的一个Java异步调用框架，支持用户： 
+AsyncTask是个人编写的一个Java异步调用框架，支持用户：<br/> 
 1）自定义Task，并可设置Task的类型(Type), 子类型（subType），超时时间（TImeout），标识（Flag-可用来区分不同的Task），Task的输入参数（input）等。
 2）可通过submitTask，提交 到框架中异步执行。
 3）可自定义对应TaskExecutor，通过配置添加到框架中。
