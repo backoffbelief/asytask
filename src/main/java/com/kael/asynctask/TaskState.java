@@ -9,10 +9,10 @@ package com.kael.asynctask;
 public enum TaskState {
     unknown(0),
     queued(1),
-    running(2),
-    success(3),
-    failed(4),
-    timeout(5);
+    running(0x10),
+    success(0x100),
+    failed(0x1000),
+    timeout(0x10000);
 
     private int _val;
 
@@ -24,11 +24,18 @@ public enum TaskState {
         return _val;
     }
 
+//    public static boolean isFinished(TaskState state) {
+//        if (state == success || state == failed || state == timeout) {
+//            return true;
+//        }
+//        return false;
+//    }
+
     public static boolean isFinished(TaskState state) {
-        if (state == success || state == failed || state == timeout) {
-            return true;
-        }
-        return false;
+    	if ((state._val & (success._val | failed._val | timeout._val)) != 0) {
+    		return true;
+    	}
+    	return false;
     }
 
     public static TaskState valueOf(int value) {

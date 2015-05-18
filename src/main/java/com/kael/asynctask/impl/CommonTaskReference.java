@@ -37,11 +37,12 @@ public class CommonTaskReference extends TaskReferenceBase {
      */
     @Override
     public boolean isFinished() {
-        if (_state == TaskState.success || _state == TaskState.failed
-                || _state == TaskState.timeout) {
-            return true;
-        }
-        return false;
+    	
+//        if (_state == TaskState.success || _state == TaskState.failed
+//                || _state == TaskState.timeout) {
+//            return true;
+//        }
+        return TaskState.isFinished(_state);
     }
 
     /**

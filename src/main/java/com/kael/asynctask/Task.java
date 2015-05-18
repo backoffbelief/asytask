@@ -15,31 +15,36 @@ import com.kael.asynctask.util.IDGenerator;
  */
 public class Task {
 
+	private static final int DefaultTimeOut = 15000;
+	
     private String  _id;
     private String  _type;
     private String  _subType;
     private Object  _inParams;
-    private int     _timeoutMills    = 15000;
+    private int     _timeoutMills;
     private boolean _needPersistence = false;
     private String  _flag;
 
     public Task(String taskType, Object inputParam) {
-        _id = IDGenerator.gen();
-        _type = taskType;
-        _inParams = inputParam;
+//        _id = IDGenerator.gen();
+//        _type = taskType;
+//        _inParams = inputParam;
+    	this(taskType, inputParam, null, DefaultTimeOut);
     }
 
     public Task(String taskType, Object inputParam, int timeoutMills) {
-        _id = IDGenerator.gen();
-        _type = taskType;
-        _inParams = inputParam;
-        _timeoutMills = timeoutMills;
+//        _id = IDGenerator.gen();
+//        _type = taskType;
+//        _inParams = inputParam;
+//        _timeoutMills = timeoutMills;
+    	this(taskType, inputParam, null, timeoutMills);
     }
 
     public Task(String taskType, Object inputParam, String parentId) {
-        _id = IDGenerator.gen();
-        _type = taskType;
-        _inParams = inputParam;
+//        _id = IDGenerator.gen();
+//        _type = taskType;
+//        _inParams = inputParam;
+    	this(taskType, inputParam, parentId, DefaultTimeOut);
     }
 
     public Task(String taskType, Object inputParam, String parentId, int timeoutMills) {

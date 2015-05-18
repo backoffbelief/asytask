@@ -40,10 +40,10 @@ public class PresistenceTaskReference extends TaskReferenceBase {
     @Override
     public boolean isFinished() {
         TaskState state = TaskState.valueOf(_taskDao.getTask(_taskId).getState());
-        if (state == TaskState.success || state == TaskState.failed || state == TaskState.timeout) {
-            return true;
-        }
-        return false;
+//        if (state == TaskState.success || state == TaskState.failed || state == TaskState.timeout) {
+//            return true;
+//        }
+        return TaskState.isFinished(state);
     }
 
     @Override
